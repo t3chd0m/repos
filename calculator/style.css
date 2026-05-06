@@ -36,16 +36,13 @@ body {
     /* This creates 4 equal columns */
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    width: 100%;
 }
 
 .btn {
     padding: 20px;
     font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #ecf0f1;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .btn:hover { background-color: #bdc3c7; }
