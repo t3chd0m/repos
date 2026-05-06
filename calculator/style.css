@@ -33,11 +33,10 @@ body {
 
 .buttons {
     display: grid;
-    /* This creates 4 equal columns */
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    width: 100%;
 }
+
 
 .btn {
     padding: 20px;
