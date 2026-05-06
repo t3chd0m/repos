@@ -1,0 +1,53 @@
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: 1 0 40%; /* Sidebar takes about 40% of the width */
+    background-image: url('your-image.jpg');
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center; /* Centers the logo vertically */
+}
+
+.logo-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+}
+
+/* Pseudo-classes from the instructions */
+input:focus {
+    border: 2px solid blue;
+    box-shadow: 2px 2px 5px rgba(0,0,255,0.2);
+    outline: none;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+.main-container {
+    display: flex;
+    height: 100vh; /* Takes full screen height */
+}
+
+.sidebar {
+    flex: 2; /* Sidebar takes 2/5 of the space */
+    background-color: #333; /* Placeholder until you add the image */
+}
+
+.content {
+    flex: 3; /* Content takes 3/5 of the space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the form vertically */
+    background-color: #fff;
+}

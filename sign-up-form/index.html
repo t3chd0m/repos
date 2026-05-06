@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Form</title>
+    <!-- This links your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add a Google Font link here -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Your sidebar and form content goes here -->
+        <section class="sidebar">
+            <div class="logo-container">
+                <img src="odin-lined.png" alt="Odin Logo">
+                <span class="logo-text">ODIN</span>
+            </div>
+        </section>
+
+        <section class="content">
+            <section class="content">
+    <!-- 1. Header Text -->
+    <div class="header-text">
+        <p>This is not a real service! You know you need something like this in your life to help you realize your deepest dreams. Sign up <em>now</em> to get started.</p>
+        <p>You <em>know</em> you want to.</p>
+    </div>
+
+    <!-- 2. The Form -->
+    <div class="form-container">
+        <form action="#" method="post" id="signup-form">
+            <h2>Let's do this!</h2>
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="first_name">FIRST NAME</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                </div>
+                <div class="input-group">
+                    <label for="last_name">LAST NAME</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                </div>
+            </div>
+            <!-- More rows will go here for Email, Phone, and Passwords -->
+        </form>
+    </div>
+
+    <!-- 3. The Footer -->
+    <div class="footer-text">
+        <button type="submit" form="signup-form">Create Account</button>
+        <p>Already have an account? <a href="#">Log in</a></p>
+    </div>
+</section>
+
+        </section>
+    </div>
+
+</body>
+</html>
