@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 960px;
+    background-color: white;
+    border: 2px solid #333;
+}
+
+.square {
+    box-sizing: border-box; /* Keeps borders from breaking the grid */
+    border: 0.1px solid #eee;
+}
+
+/* This is the class we will add via JS for the hover effect */
+.hovered {
+    background-color: black;
+}
