@@ -24,3 +24,13 @@ body {
 .hovered {
     background-color: black;
 }
+
+#clear-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #f44336; /* Red color for 'Clear' */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,29 +1,4 @@
-const container = document.querySelector('#container');
-const btn = document.querySelector('#reset-btn');
-
-function createGrid(size) {
-    // Clear existing grid
-    container.innerHTML = '';
-    
-    // Calculate square size
-    const squareSize = 960 / size;
-
-    for (let i = 0; i < size * size; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        square.style.width = `${squareSize}px`;
-        square.style.height = `${squareSize}px`;
-
-        // Add hover effect
-        square.addEventListener('mouseover', () => {
-            square.classList.add('hovered');
-        });
-
-        container.appendChild(square);
-    }
-}
-
-// Function to generate a random RGB color
+// Helper for random colors
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
@@ -31,22 +6,61 @@ function getRandomColor() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Update the listener inside your createGrid loop:
-square.addEventListener('mouseover', () => {
-    // 1. Get current opacity (default is 0 if not set)
-    let currentOpacity = parseFloat(square.style.opacity) || 0;
+const container = document.querySelector('#container');
+const newGridBtn = document.querySelector('#reset-btn');
 
-    // 2. Extra Credit: Randomize Color only on the first touch
-    if (currentOpacity === 0) {
-        square.style.backgroundColor = getRandomColor();
+// Create the Clear Button via JS
+const clearBtn = document.createElement('button');
+clearBtn.textContent = 'Clear Board';
+clearBtn.id = 'clear-btn';
+newGridBtn.after(clearBtn); // Places it right after the "New Grid" button
+
+function createGrid(size) {
+    container.innerHTML = '';
+    const squareSize = 960 / size;
+
+    for (let i = 0; i < size * size; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.style.width = `${squareSize}px`;
+        square.style.height = `${squareSize}px`;
+        square.style.opacity = "0"; // Start at 0 for progressive darkening
+
+        square.addEventListener('mouseover', () => {
+            let currentOpacity = parseFloat(square.style.opacity);
+            
+            // Random color on first touch
+            if (currentOpacity === 0) {
+                square.style.backgroundColor = getRandomColor();
+            }
+            
+            // Darken by 10% each pass
+            if (currentOpacity < 1) {
+                square.style.opacity = (currentOpacity + 0.1).toString();
+            }
+        });
+
+        container.appendChild(square);
     }
+}
 
-    // 3. Extra Credit: Progressive Darkening (+10% each time)
-    if (currentOpacity < 1) {
-        square.style.opacity = currentOpacity + 0.1;
+// Clear Logic: Simply reset styles of existing squares
+clearBtn.addEventListener('click', () => {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.style.backgroundColor = 'transparent';
+        square.style.opacity = '0';
+    });
+});
+
+newGridBtn.addEventListener('click', () => {
+    let newSize = prompt("Enter squares per side (max 100):");
+    newSize = parseInt(newSize);
+    if (newSize > 0 && newSize <= 100) {
+        createGrid(newSize);
+    } else {
+        alert("Please enter a number between 1 and 100.");
     }
 });
 
-
-// Initial 16x16 grid
 createGrid(16);
